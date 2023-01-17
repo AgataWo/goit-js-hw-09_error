@@ -1,5 +1,5 @@
-const btnStart = document.querySelector('data-start');
-const btnStop = document.querySelector('data-stop');
+let btnStart = document.querySelector('button[data-start]');
+let btnStop = document.querySelector('button[data-stop]');
 
 btnStart.addEventListener('click', console.log('start'));
 btnStop.addEventListener('click', console.log('stop'));
