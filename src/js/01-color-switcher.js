@@ -1,7 +1,11 @@
 let btnStart = document.querySelector('button[data-start]');
 let btnStop = document.querySelector('button[data-stop]');
+let body = document.querySelector('body');
 
-btnStart.addEventListener('click', console.log('start'));
-btnStop.addEventListener('click', console.log('stop'));
+function getRandomHexColor() {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  }
 
-//test
+
+btnStart.addEventListener('click', start);
+btnStop.addEventListener('click', stop);
