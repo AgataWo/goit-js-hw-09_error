@@ -7,21 +7,21 @@ function getRandomHexColor() {
   }
 
 let timer = null;
-stopBtn.disabled = true;
+btnStop.disabled = true;
 
 let start = () => {
   let colorsBg = () => {
     background.style.backgroundColor = `${getRandomHexColor()}`;
   };
   timer = setInterval(colorsBg, 1000);
-  startBtn.disabled = true;
-  stopBtn.disabled = false;
+  btnStart.disabled = true;
+  btnStop.disabled = false;
 };
 
 let stop = () => {
   clearInterval(timer);
-  startBtn.disabled = false;
-  stopBtn.disabled = true;
+  btnStart.disabled = false;
+  btnStop.disabled = true;
 };
 
 btnStart.addEventListener('click', start);
