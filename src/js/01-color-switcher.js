@@ -10,10 +10,10 @@ let timer = null;
 btnStop.disabled = true;
 
 let start = () => {
-  let colorsBg = () => {
+  let body = () => {
     background.style.backgroundColor = `${getRandomHexColor()}`;
   };
-  timer = setInterval(colorsBg, 1000);
+  timer = setInterval(body, 1000);
   btnStart.disabled = true;
   btnStop.disabled = false;
 };
