@@ -3,10 +3,10 @@ import 'flatpickr/dist/flatpickr.min.css';
 
 const btnStart = document.querySelector('button[data-start]');
 btnStart.disabled = true;
-const days = document.querySelector('span[data-days]');
-const hours = document.querySelector('span[data-hours]');
-const minutes = document.querySelector('span[data-minutes]');
-const seconds = document.querySelector('span[data-seconds]');
+const daysGet = document.querySelector('span[data-days]');
+const hoursGet = document.querySelector('span[data-hours]');
+const minutesGet = document.querySelector('span[data-minutes]');
+const secondsGet = document.querySelector('span[data-seconds]');
 
 let enteredDate;
 
@@ -26,5 +26,33 @@ const options = {
     },
   };
 
+const countDown = () => {
+    let timer = setInterval(()=>{
+        btnStart.disabled = true;
+        let timeValue = enteredDate - Date.now();
+        const hours = Math.floor(timeValue / 3600000);
+        let minutes = Math.floor((timeValue % 3600000) / 60000);
+        const seconds = Math.floor(((timeValue % 360000) % 60000) / 1000);
+        const timeValueToDays = Math.floor(timeValue / 86400000);
+        secondsGet.textContent = seconds > 10 ? seconds : addLeadingZero(seconds);
+        minutesGet.textContent = minutes > 10 ? minutes : addLeadingZero(minutes);
+        hoursGet.textContent = hours > 10 ? hours : addLeadingZero(hours);
+        daysGet.textContent = timeValueToDays > 10 ? timeValueToDays : addLeadingZero(timeValueToDays);
+    if ( timeValue <=0){
+        clearInterval(timer);
+        secs.textContent = '00';
+        mins.textContent = '00';
+        hrs.textContent = '00';
+        days.textContent = '00';
+    }
+    }, 1000);
+};
+
 
 btnStart.addEventListener('click', countDown);
+
+
+
+
+
+
