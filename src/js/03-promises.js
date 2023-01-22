@@ -38,4 +38,3 @@ let start = e => {
   }
 };
 submit.addEventListener('click', start);
-//test
