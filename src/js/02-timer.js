@@ -26,6 +26,8 @@ const options = {
     },
   };
 
+  const flatP = flatpickr('input#datetime-picker', options);
+
 const countDown = () => {
     let timer = setInterval(()=>{
         btnStart.disabled = true;
@@ -50,7 +52,9 @@ const countDown = () => {
 
 
 btnStart.addEventListener('click', countDown);
-
+function addLeadingZero(e){
+    return String(e).padStart(2, '0');
+}
 
 
 
